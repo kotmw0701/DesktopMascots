@@ -15,6 +15,8 @@ namespace DesktopMascots {
 
         private Manager() { }
 
+        private bool isAlive = false;
+
         #endregion
 
         #region 変数
@@ -38,7 +40,6 @@ namespace DesktopMascots {
             MascotView mascot = new MascotView();
             mascot.Show();
             _mascots.Add(mascot);
-            Console.WriteLine("ここまで来てる？①");
         }
 
 
@@ -46,6 +47,9 @@ namespace DesktopMascots {
         /// マスコット全体のScheduler
         /// </summary>
         public async Task Start() {
+            if (isAlive)
+                return;
+            isAlive = true;
             //スケジューラーをキャンセルするToken(？)
             CancellationToken token = CancellationToken.None;
             while(!token.IsCancellationRequested) {
@@ -62,8 +66,10 @@ namespace DesktopMascots {
         /// </summary>
         public void Tick() {
             foreach(MascotView mascot in _mascots) {
-                mascot.Dispatcher.Invoke(callback: () => {
-                    mascot.Tick();
+                mascot.Dispatcher.Invoke(() => {
+                    if (!(mascot.DataContext is MascotViewModel model))
+                        return;
+                    model.Chara = model.mascot.GetNextImage;
                 });
             }
         }

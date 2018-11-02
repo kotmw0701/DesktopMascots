@@ -37,11 +37,5 @@ namespace DesktopMascots {
             Top = SystemParameters.PrimaryScreenHeight - Height - 2;
             Left = 0;
         }
-
-        public void Tick() {
-            if (!(this.DataContext is MascotViewModel model))
-                return;
-            Background = model.mascot.GetNextImage;//Modelからダイレクトにやらないと何故か更新されない
-        }
     }
 }
