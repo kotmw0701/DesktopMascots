@@ -10,5 +10,6 @@ namespace DesktopMascots {
     /// Jsonで保存してるよ
     /// </summary>
     class Configuration {
+
     }
 }

@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopMascots"
         mc:Ignorable="d"
-        Title="MascotView" 
+        Title="{Binding Name}" 
         Height="{Binding Height, Mode=TwoWay}"
-        Width="{Binding Width, Mode=TwoWay}" 
-        WindowStyle="None" 
-        AllowsTransparency="True"
+        Width="{Binding Width, Mode=TwoWay}"
         Background="{Binding Chara}" 
         ShowInTaskbar="False" 
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded" 
+        WindowStyle="None" 
+        AllowsTransparency="True">
     <Window.DataContext>
         <local:MascotViewModel/>
     </Window.DataContext>

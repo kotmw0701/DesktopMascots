@@ -9,11 +9,11 @@ using System.Windows.Media.Imaging;
 namespace DesktopMascots {
     /// <summary>
     /// マスコットのメインの処理をする
-    /// (Model) : Mascot.cs
+    /// (Model) : MascotModel.cs
     /// (View) MascotView.xaml.cs
     /// (ViewModel) MascotViewModel.xaml.cs
     /// </summary>
-    class Mascot {
+    class MascotModel {
 
         #region 変数,プロパティ
 
@@ -32,8 +32,11 @@ namespace DesktopMascots {
 
         //マスコットの画像サイズ
         //これは後に別クラスで管理するけど仮置き
-        public double Height { get; set; } = 10;
-        public double Width { get; set; } = 10;
+        public double Height { get; set; }
+        public double Width { get; set; }
+
+        //マスコットの名前
+        public string Name { get; set; }
 
         public Manager Manager { get; set; }
 
@@ -44,7 +47,7 @@ namespace DesktopMascots {
         }
         #endregion
 
-        public Mascot() {
+        public MascotModel() {
             MaxImageNum = 5;
             for (int i = 0; i < MaxImageNum; i++) {
                 BitmapImage bitmapImage = new BitmapImage();
@@ -55,8 +58,9 @@ namespace DesktopMascots {
             }
             Height = _charas[0].ImageSource.Height;
             Width = _charas[0].ImageSource.Width;
+            Name = "Irisu";
         }
-        
+
         public ImageBrush GetCharaImage(int num) {
             return _charas[num];
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Threading;
 
 namespace DesktopMascots {
@@ -13,9 +14,16 @@ namespace DesktopMascots {
 
         public static Manager Instance { get; } = new Manager();
 
-        private Manager() { }
-
-        private bool isAlive = false;
+        private Manager() {
+            Window owner = new Window();
+            owner.WindowStyle = WindowStyle.ToolWindow;
+            owner.ShowInTaskbar = false;
+            owner.Left = -100;
+            owner.Height = 0;
+            owner.Width = 0;
+            owner.Show();
+            OwnerWindow = owner;
+        }
 
         #endregion
 
@@ -26,11 +34,11 @@ namespace DesktopMascots {
         /// </summary>
         private List<MascotView> _mascots = new List<MascotView>();
 
-        /// <summary>
-        /// Mascot全体を動かすSheduler
-        /// </summary>
-        private Task task = null;
+        private readonly int interval = 95;
 
+        private bool isAlive = false;
+
+        public Window OwnerWindow { get; }
         #endregion
 
         /// <summary>
@@ -38,6 +46,7 @@ namespace DesktopMascots {
         /// </summary>
         public void GenerateMascot() {
             MascotView mascot = new MascotView();
+            mascot.Owner = OwnerWindow;
             mascot.Show();
             _mascots.Add(mascot);
         }
@@ -55,7 +64,7 @@ namespace DesktopMascots {
             while(!token.IsCancellationRequested) {
                 //引数1 : 遅延処理
                 //引数2 : 非同期したい処理の内容
-                await Task.WhenAll(Task.Delay(95), Task.Run(() => {
+                await Task.WhenAll(Task.Delay(interval), Task.Run(() => {
                     Tick();
                 }, token));
             }

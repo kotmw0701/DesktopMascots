@@ -23,6 +23,7 @@ namespace DesktopMascots {
             base.OnStartup(e);
             this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             this.notifyIcon = new NotifyIconWrapper();
+            CreateFirst();
             await Manager.Instance.Start();
         }
 

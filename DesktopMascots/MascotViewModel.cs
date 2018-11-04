@@ -15,8 +15,7 @@ namespace DesktopMascots{
     /// </summary>
     class MascotViewModel : INotifyPropertyChanged {
 
-        public Mascot mascot = new Mascot();
-
+        #region Bindingデータ
 
         //表示中のキャラ画像
         public ImageBrush Chara {
@@ -28,17 +27,20 @@ namespace DesktopMascots{
         }
         private ImageBrush _chara;
 
-        public double Height { get; set; } = 10;
-        public double Width { get; set; } = 10;
+        public double Height { get; set; }
+        public double Width { get; set; }
+
+        public string Name { get; set; }
+
+        #endregion
+
+        public MascotModel mascot = new MascotModel();
 
         public MascotViewModel() {
             Chara = mascot.GetCharaImage(0);
             Height = mascot.Height;
             Width = mascot.Width;
-        }
-
-        public void Tick() {
-            
+            Name = mascot.Name;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
