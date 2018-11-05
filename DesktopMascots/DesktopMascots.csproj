@@ -56,6 +56,11 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Compile Include="ActionBase.cs" />
+    <Compile Include="ActionEnum.cs" />
+    <Compile Include="Mascot.cs" />
+    <Compile Include="ImagePair.cs" />
+    <Compile Include="MascotImageData.cs" />
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>

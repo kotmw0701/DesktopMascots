@@ -15,12 +15,13 @@ namespace DesktopMascots {
         public static Manager Instance { get; } = new Manager();
 
         private Manager() {
-            Window owner = new Window();
-            owner.WindowStyle = WindowStyle.ToolWindow;
-            owner.ShowInTaskbar = false;
-            owner.Left = -100;
-            owner.Height = 0;
-            owner.Width = 0;
+            Window owner = new Window {
+                WindowStyle = WindowStyle.ToolWindow,
+                ShowInTaskbar = false,
+                Left = -100,
+                Height = 0,
+                Width = 0
+            };
             owner.Show();
             OwnerWindow = owner;
         }
@@ -34,10 +35,19 @@ namespace DesktopMascots {
         /// </summary>
         private List<MascotView> _mascots = new List<MascotView>();
 
+        /// <summary>
+        /// 定周期処理
+        /// </summary>
         private readonly int interval = 95;
 
+        /// <summary>
+        /// 定周期処理が始まってるか
+        /// </summary>
         private bool isAlive = false;
 
+        /// <summary>
+        /// MascotViewをalt + tabで表示させないようにするためのOwner
+        /// </summary>
         public Window OwnerWindow { get; }
         #endregion
 
@@ -51,7 +61,6 @@ namespace DesktopMascots {
             _mascots.Add(mascot);
         }
 
-
         /// <summary>
         /// マスコット全体のScheduler
         /// </summary>
@@ -60,7 +69,7 @@ namespace DesktopMascots {
                 return;
             isAlive = true;
             //スケジューラーをキャンセルするToken(？)
-            CancellationToken token = CancellationToken.None;
+            var token = CancellationToken.None;
             while(!token.IsCancellationRequested) {
                 //引数1 : 遅延処理
                 //引数2 : 非同期したい処理の内容
@@ -78,7 +87,7 @@ namespace DesktopMascots {
                 mascot.Dispatcher.Invoke(() => {
                     if (!(mascot.DataContext is MascotViewModel model))
                         return;
-                    model.Chara = model.mascot.GetNextImage;
+                    model.Tick();
                 });
             }
         }

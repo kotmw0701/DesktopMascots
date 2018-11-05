@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Media;
 
 namespace DesktopMascots{
@@ -30,17 +31,33 @@ namespace DesktopMascots{
         public double Height { get; set; }
         public double Width { get; set; }
 
-        public string Name { get; set; }
+        public Thickness Thickness { get; set; }
 
+        public string Name { get; set; }
+        
         #endregion
 
         public MascotModel mascot = new MascotModel();
 
+        /// <summary>
+        /// コンストラクタ
+        /// HeightとWidthにThicknessを足さないと元画像より若干小さくなる
+        /// </summary>
         public MascotViewModel() {
+            Thickness = new Thickness {
+                Bottom = 5,
+                Left = 10,
+                Right = 10,
+                Top = 5
+            };
             Chara = mascot.GetCharaImage(0);
-            Height = mascot.Height;
-            Width = mascot.Width;
+            Height = mascot.Height + Thickness.Top + Thickness.Bottom;
+            Width = mascot.Width + Thickness.Right + Thickness.Left;
             Name = mascot.Name;
+        }
+        
+        public void Tick() {
+            Chara = mascot.GetNextImage;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

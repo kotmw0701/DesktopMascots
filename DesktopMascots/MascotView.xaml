@@ -12,7 +12,12 @@
         ShowInTaskbar="False" 
         Loaded="Window_Loaded" 
         WindowStyle="None" 
-        AllowsTransparency="True">
+        AllowsTransparency="True" 
+        ResizeMode="NoResize" 
+        BorderThickness="{Binding Thickness}">
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="6" ShadowDepth="3" Opacity="0.65" Direction="350"/>
+    </Window.Effect>
     <Window.DataContext>
         <local:MascotViewModel/>
     </Window.DataContext>
