@@ -60,7 +60,7 @@
     <Compile Include="ActionEnum.cs" />
     <Compile Include="Mascot.cs" />
     <Compile Include="ImagePair.cs" />
-    <Compile Include="MascotImageData.cs" />
+    <Compile Include="MascotImage.cs" />
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
