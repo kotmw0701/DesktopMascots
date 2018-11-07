@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows.Media;
 
 namespace DesktopMascots {
+    /// <summary>
+    /// 両方向きの画像を管理
+    /// </summary>
     class ImagePair {
         public MascotImage LeftImage { get; }
         public MascotImage RightImage { get; }
@@ -14,6 +17,10 @@ namespace DesktopMascots {
         public ImagePair(MascotImage leftImage, MascotImage rightImage) {
             LeftImage = leftImage;
             RightImage = rightImage;
+        }
+
+        public MascotImage getImage(bool lookRight) {
+            return lookRight ? RightImage : LeftImage;
         }
     }
 }
