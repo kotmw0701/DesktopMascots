@@ -23,7 +23,7 @@ namespace DesktopMascots {
                 Width = 0
             };
             owner.Show();
-            OwnerWindow = owner;
+            ownerWindow = owner;
         }
 
         #endregion
@@ -38,7 +38,7 @@ namespace DesktopMascots {
         /// <summary>
         /// 定周期処理
         /// </summary>
-        private readonly int interval = 95;
+        private readonly int interval = 90;
 
         /// <summary>
         /// 定周期処理が始まってるか
@@ -48,7 +48,7 @@ namespace DesktopMascots {
         /// <summary>
         /// MascotViewをalt + tabで表示させないようにするためのOwner
         /// </summary>
-        public Window OwnerWindow { get; }
+        private readonly Window ownerWindow;
         #endregion
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace DesktopMascots {
         /// </summary>
         public void GenerateMascot() {
             MascotView mascot = new MascotView();
-            mascot.Owner = OwnerWindow;
+            mascot.Owner = ownerWindow;
             mascot.Show();
             _mascots.Add(mascot);
         }

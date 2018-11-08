@@ -19,7 +19,7 @@ namespace DesktopMascots {
             RightImage = rightImage;
         }
 
-        public MascotImage getImage(bool lookRight) {
+        public MascotImage GetImage(bool lookRight) {
             return lookRight ? RightImage : LeftImage;
         }
     }

@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="ActionBase.cs" />
     <Compile Include="ActionEnum.cs" />
+    <Compile Include="IAction.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="Mascot.cs" />
     <Compile Include="ImagePair.cs" />

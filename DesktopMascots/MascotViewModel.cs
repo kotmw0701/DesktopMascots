@@ -37,7 +37,7 @@ namespace DesktopMascots{
         
         #endregion
 
-        public MascotModel mascot = new MascotModel();
+        private MascotModel mascot = new MascotModel();
 
         /// <summary>
         /// コンストラクタ
