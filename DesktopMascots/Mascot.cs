@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,26 @@ using System.Windows.Media.Imaging;
 namespace DesktopMascots {
     class Mascot {
 
-        public string Name { get; set; }
+        #region 変数
 
-        public List<BitmapImage> list = new List<BitmapImage>();
+        public string Name { get; }
+
+        public double Height { get; }
+        public double Width { get; }
+
+        private Manager manager;
+        private Point anchor;
+        private bool lookRight;
+
+        private
+
+        private List<ImagePair> imagePairs = new List<ImagePair>();
+        #endregion
+
+        public Mascot(string name, List<ImagePair> imagePairs) {
+            Name = name;
+            this.imagePairs = imagePairs;
+        }
 
         /* メモ:
          * 全部readonly？
@@ -28,11 +46,37 @@ namespace DesktopMascots {
          *   　  ・会話？
          *   　  ・未定
          *   ・フレーム切り替え時間 (int)
+         *     ↑1フレームずつのこれを合計して，24 Mod 合計値 で求めて
+         *       求めた数値から1フレームずつの切り替え時間を引いて行って，0以下になったらそのフレームを返す(=そのフレームの時間)
+         *       以下参考ソース，getDurationはDuration(切り替え時間)の合計値
+         *       public Pose getPoseAt(int time) {
+         *
+	     *           time %= getDuration();
+         *
+	     *           for (final Pose pose : getPoses()) {
+		 *               time -= pose.getDuration();
+		 *               if (time < 0) {
+		 *                    return pose;
+		 *               }
+	     *           }
+         *
+	     *           return null;
+         *       }
          *   ・座標
          *   ・今右を向いているか (bool)
          *   ・歩き速度 (double)
          *   ・走り速度 (double)
          * 
+         * 
+         * Mascotクラスに全部のAnimationを保存する？
+         * キャラ毎にMascotクラスのインスタンスを生成
+         * Modelのインスタンスを生成する段階でMascotクラスを渡す
+         * あくまで
+         * Mascot.cs : 画像の保存，アニメーションの管理，アニメーションを進める？
+         * MascotModel.cs : 切り替え画像の読み込み
+         * って感じかな
+         * 
+         * 11/9 : とりあえず立ち絵のアニメーションオンリーなのでアニメーションクラスは用意しないでImagePair直接叩きます。
          */
     }
 }

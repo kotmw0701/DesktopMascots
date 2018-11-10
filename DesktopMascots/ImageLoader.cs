@@ -13,6 +13,12 @@ namespace DesktopMascots {
     /// ファイル名から画像を読み込む静的クラス
     /// </summary>
     static class ImageLoader {
+
+        public static ImagePair Load(string name) {
+            var onesideBitmap = new Bitmap(name);
+            return Load(onesideBitmap, new Point(onesideBitmap.Width / 2, 0));
+        }
+
         /// <summary>
         /// 画像を読み込んで ImagePair クラスに入れて返す
         /// </summary>
@@ -21,12 +27,15 @@ namespace DesktopMascots {
         /// <returns>ファイル名から生成された画像を格納するImagePair</returns>
         public static ImagePair Load(string name, Point center) {
             var onesideBitmap = new Bitmap(name);
+            return Load(onesideBitmap, center);
+        }
 
-            var opposideBitmap = (Bitmap)onesideBitmap.Clone();
+        private static ImagePair Load(Bitmap image, Point center) {
+            var opposideBitmap = (Bitmap)image.Clone();
             opposideBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
 
-            return new ImagePair(new MascotImage(Convert(onesideBitmap), center), 
-                                 new MascotImage(Convert(opposideBitmap), 
+            return new ImagePair(new MascotImage(Convert(image), center),
+                                 new MascotImage(Convert(opposideBitmap),
                                         new Point(opposideBitmap.Width - center.X, center.Y)));
         }
 

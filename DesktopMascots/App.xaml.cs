@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
@@ -43,7 +44,13 @@ namespace DesktopMascots {
         /// ./settings/setting.json
         /// </summary>
         private void LoadConfiguration() {
-
+            List<ImagePair> imagePairs = new List<ImagePair>();
+            for (int i = 0; i < 6; i++) {
+                ImagePair imagePair = ImageLoader.Load(@"C:\Sync\gif\irisu\3px\rabiribi_iris_page" + (i + 1) + ".png");
+                imagePairs.Add(imagePair);
+            }
+            Mascot mascot = new Mascot("Irisu", imagePairs);
+            Manager.Instance.RegisterMascot(mascot);
         }
 
         /// <summary>
