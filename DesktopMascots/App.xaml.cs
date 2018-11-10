@@ -22,6 +22,9 @@ namespace DesktopMascots {
         /// <param name="e"></param>
         protected override async void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
+
+            LoadConfiguration();
+
             this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             this.notifyIcon = new NotifyIconWrapper();
             CreateFirst();

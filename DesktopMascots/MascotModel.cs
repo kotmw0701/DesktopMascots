@@ -18,6 +18,14 @@ namespace DesktopMascots {
         #region 変数,プロパティ
 
         private Mascot mascot;
+        
+        public string Name { get { return mascot.Name; } }
+
+        public double Height { get { return mascot.Height; } }
+
+        public double Width { get { return mascot.Width; } }
+
+        public ImageBrush Cover { get { return mascot.Cover; } }
 
         public Manager Manager { get; set; }
         #endregion
@@ -26,8 +34,8 @@ namespace DesktopMascots {
             mascot = Manager.Instance.GetMascot("Irisu");
         }
 
-        public void Tick() {
-
+        public ImageBrush Tick() {
+            return mascot.Next();
         }
     }
 }

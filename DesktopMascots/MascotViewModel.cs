@@ -28,8 +28,8 @@ namespace DesktopMascots{
         }
         private ImageBrush _chara;
 
-        public double Height { get; set; }
-        public double Width { get; set; }
+        public double Height { get; set; } = 20;
+        public double Width { get; set; } = 20;
 
         public Thickness Thickness { get; set; }
 
@@ -50,14 +50,14 @@ namespace DesktopMascots{
                 Right = 10,
                 Top = 5
             };
-            Chara = mascot.GetCharaImage(0);
+            Chara = mascot.Cover;
             Height = mascot.Height + Thickness.Top + Thickness.Bottom;
             Width = mascot.Width + Thickness.Right + Thickness.Left;
             Name = mascot.Name;
         }
         
         public void Tick() {
-            Chara = mascot.GetNextImage;
+            Chara = mascot.Tick();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

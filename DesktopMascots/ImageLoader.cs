@@ -31,12 +31,11 @@ namespace DesktopMascots {
         }
 
         private static ImagePair Load(Bitmap image, Point center) {
-            var opposideBitmap = (Bitmap)image.Clone();
-            opposideBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
-
+            var oppositeBitmap = (Bitmap)image.Clone();
+            oppositeBitmap.RotateFlip(RotateFlipType.RotateNoneFlipX);
             return new ImagePair(new MascotImage(Convert(image), center),
-                                 new MascotImage(Convert(opposideBitmap),
-                                        new Point(opposideBitmap.Width - center.X, center.Y)));
+                                 new MascotImage(Convert(oppositeBitmap),
+                                        new Point(oppositeBitmap.Width - center.X, center.Y)));
         }
 
         /// <summary>

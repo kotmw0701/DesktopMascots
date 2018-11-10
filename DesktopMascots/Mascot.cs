@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace DesktopMascots {
@@ -16,11 +17,10 @@ namespace DesktopMascots {
         public double Height { get; }
         public double Width { get; }
 
-        private Manager manager;
+        public ImageBrush Cover { get; }
+        
         private Point anchor;
-        private bool lookRight;
-
-        private
+        private bool lookRight = false;
 
         private List<ImagePair> imagePairs = new List<ImagePair>();
         #endregion
@@ -28,6 +28,18 @@ namespace DesktopMascots {
         public Mascot(string name, List<ImagePair> imagePairs) {
             Name = name;
             this.imagePairs = imagePairs;
+            Cover = imagePairs[0].GetImage(lookRight).Image;
+            Height = Cover.ImageSource.Height;
+            Width = Cover.ImageSource.Width;
+        }
+
+        private int count = 0;
+
+        public ImageBrush Next() {
+            if (count >= imagePairs.Count)
+                count = 0;
+            ImagePair imagePair = imagePairs[count++];
+            return imagePair.GetImage(lookRight).Image;
         }
 
         /* メモ:

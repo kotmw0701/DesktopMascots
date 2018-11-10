@@ -16,7 +16,7 @@
         ResizeMode="NoResize" 
         BorderThickness="{Binding Thickness}">
     <Window.Effect>
-        <DropShadowEffect BlurRadius="6" ShadowDepth="3" Opacity="0.65" Direction="350"/>
+        <DropShadowEffect BlurRadius="8" ShadowDepth="8" Opacity="0.7" Direction="350"/>
     </Window.Effect>
     <Window.DataContext>
         <local:MascotViewModel/>

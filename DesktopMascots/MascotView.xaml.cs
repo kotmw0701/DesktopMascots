@@ -22,7 +22,6 @@ namespace DesktopMascots {
     /// </summary>
     public partial class MascotView : Window {
         public MascotView() {
-
             //常時最前面
             Topmost = true;
 
@@ -30,7 +29,7 @@ namespace DesktopMascots {
             MouseLeftButtonDown += (sender, e) => {
                 this.DragMove();
             };
-
+            
             InitializeComponent();
         }
 
