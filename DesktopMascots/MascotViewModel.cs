@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,36 +29,29 @@ namespace DesktopMascots{
         }
         private ImageBrush _chara;
 
-        public double Height { get; set; } = 20;
-        public double Width { get; set; } = 20;
+        public System.Drawing.Size Size { get; set; }
 
-        public Thickness Thickness { get; set; }
+        public Thickness Thickness { get; set; } = new Thickness(5, 10, 5, 10);
 
         public string Name { get; set; }
         
         #endregion
 
-        private MascotModel mascot = new MascotModel();
+        private MascotModel mascotModel = new MascotModel();
 
         /// <summary>
         /// コンストラクタ
         /// HeightとWidthにThicknessを足さないと元画像より若干小さくなる
         /// </summary>
         public MascotViewModel() {
-            Thickness = new Thickness {
-                Bottom = 5,
-                Left = 10,
-                Right = 10,
-                Top = 5
-            };
-            Chara = mascot.Cover;
-            Height = mascot.Height + Thickness.Top + Thickness.Bottom;
-            Width = mascot.Width + Thickness.Right + Thickness.Left;
-            Name = mascot.Name;
+            Chara = mascotModel.Cover.Image;
+            //Height = mascotModel.Height + Thickness.Top + Thickness.Bottom;
+            //Width = mascotModel.Width + Thickness.Right + Thickness.Left;
+            Name = mascotModel.Name;
         }
         
         public void Tick() {
-            Chara = mascot.Tick();
+            Chara = mascotModel.Tick();
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -26,9 +26,7 @@ namespace DesktopMascots {
             Topmost = true;
 
             //マウスドラッグ出来るように
-            MouseLeftButtonDown += (sender, e) => {
-                this.DragMove();
-            };
+            MouseLeftButtonDown += (sender, e) => DragMove();
             
             InitializeComponent();
         }

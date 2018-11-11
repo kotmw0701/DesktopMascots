@@ -60,11 +60,14 @@
     </ApplicationDefinition>
     <Compile Include="ActionBase.cs" />
     <Compile Include="ActionEnum.cs" />
+    <Compile Include="Animation.cs" />
+    <Compile Include="CallBackTest.cs" />
     <Compile Include="IAction.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="Mascot.cs" />
     <Compile Include="ImagePair.cs" />
     <Compile Include="MascotImage.cs" />
+    <Compile Include="Pose.cs" />
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>

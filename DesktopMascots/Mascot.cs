@@ -14,10 +14,9 @@ namespace DesktopMascots {
 
         public string Name { get; }
 
-        public double Height { get; }
-        public double Width { get; }
+        public Size Size { get; }
 
-        public ImageBrush Cover { get; }
+        public MascotImage Cover { get; }
         
         private Point anchor;
         private bool lookRight = false;
@@ -28,9 +27,8 @@ namespace DesktopMascots {
         public Mascot(string name, List<ImagePair> imagePairs) {
             Name = name;
             this.imagePairs = imagePairs;
-            Cover = imagePairs[0].GetImage(lookRight).Image;
-            Height = Cover.ImageSource.Height;
-            Width = Cover.ImageSource.Width;
+            Cover = imagePairs[0].GetImage(lookRight);
+            Size = Cover.Size;
         }
 
         private int count = 0;
@@ -81,7 +79,6 @@ namespace DesktopMascots {
          * 
          * 
          * Mascotクラスに全部のAnimationを保存する？
-         * キャラ毎にMascotクラスのインスタンスを生成
          * Modelのインスタンスを生成する段階でMascotクラスを渡す
          * あくまで
          * Mascot.cs : 画像の保存，アニメーションの管理，アニメーションを進める？
@@ -89,6 +86,9 @@ namespace DesktopMascots {
          * って感じかな
          * 
          * 11/9 : とりあえず立ち絵のアニメーションオンリーなのでアニメーションクラスは用意しないでImagePair直接叩きます。
+         * 11/10 : 1キャラだけだったら安定するけど，2キャラになるとインスタンスが同じせいでカオスな動きになる
+         *         タイマーの秒数をModelクラスで管理するようにして，Mascotクラスに引数で渡して計算してそのフレームの画像返す形に
+         *         なのでMascotクラスは単純にマスコット毎のデータを管理するだけでおｋ？
          */
     }
 }

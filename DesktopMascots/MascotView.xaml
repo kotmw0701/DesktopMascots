@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DesktopMascots"
         mc:Ignorable="d"
-        Title="{Binding Name}" 
-        Height="{Binding Height, Mode=TwoWay}"
-        Width="{Binding Width, Mode=TwoWay}"
+        Title="{Binding Name}"
         Background="{Binding Chara}" 
+        Width="{Binding Size.Width, Mode=TwoWay}" 
+        Height="{Binding Size.Height, Mode=TwoWay}"
         ShowInTaskbar="False" 
         Loaded="Window_Loaded" 
         WindowStyle="None" 
         AllowsTransparency="True" 
         ResizeMode="NoResize" 
-        BorderThickness="{Binding Thickness}">
+        BorderThickness="{Binding Thickness}" >
     <Window.Effect>
         <DropShadowEffect BlurRadius="8" ShadowDepth="8" Opacity="0.7" Direction="350"/>
     </Window.Effect>
