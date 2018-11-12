@@ -16,10 +16,11 @@ namespace DesktopMascots {
 
         public Size Size { get; }
 
+        public bool LookRight { get; set; }
+
         public MascotImage Cover { get; }
         
         private Point anchor;
-        private bool lookRight = false;
 
         private List<ImagePair> imagePairs = new List<ImagePair>();
         #endregion
@@ -27,7 +28,7 @@ namespace DesktopMascots {
         public Mascot(string name, List<ImagePair> imagePairs) {
             Name = name;
             this.imagePairs = imagePairs;
-            Cover = imagePairs[0].GetImage(lookRight);
+            Cover = imagePairs[0].GetImage(LookRight);
             Size = Cover.Size;
         }
 
@@ -37,7 +38,7 @@ namespace DesktopMascots {
             if (count >= imagePairs.Count)
                 count = 0;
             ImagePair imagePair = imagePairs[count++];
-            return imagePair.GetImage(lookRight).Image;
+            return imagePair.GetImage(LookRight).Image;
         }
 
         /* メモ:

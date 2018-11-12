@@ -29,21 +29,15 @@ namespace DesktopMascots {
             //マウスドラッグ出来るように
             MouseLeftButtonDown += (sender, e) => DragMove();
             MouseRightButtonDown += (sender, e) => {
-
+                Manager.Instance.GetMascot("Irisu").LookRight = !Manager.Instance.GetMascot("Irisu").LookRight;
             };
 
             InitializeComponent();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e) {
+        private void Window_SourceInitialized(object sender, EventArgs e) {
             //真下じゃなくて若干2px上に設定
-            Console.WriteLine("-----Window_Loaded-----");
-            Console.WriteLine("Height: " + Height);
-            Console.WriteLine("Width: " + Width);
-            Console.WriteLine("Thickness: " + this.BorderThickness);
-            Console.WriteLine("PrimaryHeight: " + SystemParameters.PrimaryScreenHeight);
-            Console.WriteLine("-----------------------");
-            Top = SystemParameters.PrimaryScreenHeight - Height - 2;
+            Top = SystemParameters.PrimaryScreenHeight - (Height - BorderThickness.Bottom) - 2;
             Left = 0;
         }
     }

@@ -8,13 +8,13 @@
         Title="{Binding Name}"
         Background="{Binding Chara}" 
         ShowInTaskbar="False" 
-        Loaded="Window_Loaded" 
         WindowStyle="None" 
         AllowsTransparency="True" 
         ResizeMode="NoResize" 
         BorderThickness="{Binding Thickness}" 
         Height="{Binding Height, Mode=TwoWay}"
-        Width="{Binding Width, Mode=TwoWay}">
+        Width="{Binding Width, Mode=TwoWay}" 
+        SourceInitialized="Window_SourceInitialized">
     <Window.Effect>
         <DropShadowEffect BlurRadius="8" ShadowDepth="8" Opacity="0.7" Direction="350"/>
     </Window.Effect>
