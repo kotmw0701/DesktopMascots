@@ -29,9 +29,32 @@ namespace DesktopMascots{
         }
         private ImageBrush _chara;
 
-        public System.Drawing.Size Size { get; set; }
+        public double Width {
+            get {
+                Console.WriteLine("Get Width: " + _width);
+                return _width;
+            }
+            set {
+                Console.WriteLine("Set Width before: " + _width);
+                Console.WriteLine("Set Width after:  " + value);
+                _width = value;
+            }
+        }
+        public double Height {
+            get {
+                Console.WriteLine("Get Height: " + _height);
+                return _height;
+            }
+            set {
+                Console.WriteLine("Set Height before: " + _height);
+                Console.WriteLine("Set Height after:  " + value);
+                _height = value;
+            }
+        }
 
-        public Thickness Thickness { get; set; } = new Thickness(5, 10, 5, 10);
+        private double _width, _height;
+
+        public Thickness Thickness { get; set; }
 
         public string Name { get; set; }
         
@@ -44,9 +67,12 @@ namespace DesktopMascots{
         /// HeightとWidthにThicknessを足さないと元画像より若干小さくなる
         /// </summary>
         public MascotViewModel() {
+            Thickness = new Thickness(5, 10, 5, 10); 
             Chara = mascotModel.Cover.Image;
-            //Height = mascotModel.Height + Thickness.Top + Thickness.Bottom;
-            //Width = mascotModel.Width + Thickness.Right + Thickness.Left;
+            double thickWidth = Thickness.Right + Thickness.Left,
+                    thickHeight = Thickness.Top + Thickness.Bottom;
+            _width = mascotModel.Size.Width + thickWidth;
+            _height = mascotModel.Size.Height + thickHeight;
             Name = mascotModel.Name;
         }
         

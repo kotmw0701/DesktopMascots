@@ -21,18 +21,28 @@ namespace DesktopMascots {
     /// (ViewModel) MascotViewModel.xaml.cs
     /// </summary>
     public partial class MascotView : Window {
+
         public MascotView() {
             //常時最前面
             Topmost = true;
 
             //マウスドラッグ出来るように
             MouseLeftButtonDown += (sender, e) => DragMove();
-            
+            MouseRightButtonDown += (sender, e) => {
+
+            };
+
             InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             //真下じゃなくて若干2px上に設定
+            Console.WriteLine("-----Window_Loaded-----");
+            Console.WriteLine("Height: " + Height);
+            Console.WriteLine("Width: " + Width);
+            Console.WriteLine("Thickness: " + this.BorderThickness);
+            Console.WriteLine("PrimaryHeight: " + SystemParameters.PrimaryScreenHeight);
+            Console.WriteLine("-----------------------");
             Top = SystemParameters.PrimaryScreenHeight - Height - 2;
             Left = 0;
         }

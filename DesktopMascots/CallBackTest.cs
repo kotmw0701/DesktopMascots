@@ -16,7 +16,7 @@ namespace DesktopMascots {
         }
         private int myValue = 0;
 
-        public Action<int> myChanged;
+        public Action<int> myChanged = null;
         
         private void OnChanged(int value) {
             var onChanged = myChanged;
