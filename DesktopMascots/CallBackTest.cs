@@ -11,18 +11,29 @@ namespace DesktopMascots {
             get { return myValue; }
             set {
                 myValue = value;
-                OnChanged(myValue);
+                OnChanged("Value Set", myValue);
             }
         }
         private int myValue = 0;
 
-        public Action<int> myChanged = null;
+        public int Value2 {
+            get {
+                return myValue2;
+            }
+            set {
+                myValue2 = value;
+                OnChanged("Value2 Set", myValue2);
+            }
+        }
+        private int myValue2 = 0;
+
+        public Action<string, int> myChanged = null;
         
-        private void OnChanged(int value) {
+        private void OnChanged(string str, int value) {
             var onChanged = myChanged;
             if (onChanged == null)
                 return;
-            onChanged(value);
+            onChanged(str, value);
         }
     }
 }

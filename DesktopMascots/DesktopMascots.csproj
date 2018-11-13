@@ -67,6 +67,7 @@
     <Compile Include="Mascot.cs" />
     <Compile Include="ImagePair.cs" />
     <Compile Include="MascotImage.cs" />
+    <Compile Include="ParserDatas\Mascot.cs" />
     <Compile Include="Pose.cs" />
     <Compile Include="Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
@@ -119,6 +120,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="example.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

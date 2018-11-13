@@ -28,9 +28,6 @@ namespace DesktopMascots {
 
             //マウスドラッグ出来るように
             MouseLeftButtonDown += (sender, e) => DragMove();
-            MouseRightButtonDown += (sender, e) => {
-                Manager.Instance.GetMascot("Irisu").LookRight = !Manager.Instance.GetMascot("Irisu").LookRight;
-            };
 
             InitializeComponent();
         }
