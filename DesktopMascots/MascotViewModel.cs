@@ -35,27 +35,26 @@ namespace DesktopMascots{
         public Thickness Thickness { get; set; }
 
         public string Name { get; set; }
-        
+
         #endregion
 
-        private MascotModel mascotModel = new MascotModel();
+        public MascotModel mascotModel;
 
         /// <summary>
         /// コンストラクタ
         /// HeightとWidthにThicknessを足さないと元画像より若干小さくなる
         /// </summary>
         public MascotViewModel() {
+            mascotModel = new MascotModel(new MascotModel.UpdateImage(Update));
             Thickness = new Thickness(5, 10, 5, 10); 
             Chara = mascotModel.Cover.Image;
-            double thickWidth = Thickness.Right + Thickness.Left,
-                    thickHeight = Thickness.Top + Thickness.Bottom;
-            Width = mascotModel.Size.Width + thickWidth;
-            Height = mascotModel.Size.Height + thickHeight;
+            Width = mascotModel.Size.Width + Thickness.Right*2;
+            Height = mascotModel.Size.Height + Thickness.Top*2;
             Name = mascotModel.Name;
         }
         
-        public void Tick() {
-            Chara = mascotModel.Tick();
+        public void Update(ImageBrush image) {
+            Chara = image;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

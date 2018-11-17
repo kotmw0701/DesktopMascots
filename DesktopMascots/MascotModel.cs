@@ -12,7 +12,7 @@ namespace DesktopMascots {
     /// マスコットのメインの処理をする
     /// (Model) : MascotModel.cs
     /// (View) MascotView.xaml.cs
-    /// (ViewModel) MascotViewModel.xaml.cs
+    /// (ViewModel) MascotViewModel.cs
     /// </summary>
     class MascotModel {
 
@@ -28,14 +28,20 @@ namespace DesktopMascots {
 
         public Manager Manager { get; set; }
 
-        #endregion
+        public int Time { get; set; }
 
-        public MascotModel() {
+        public delegate void UpdateImage(ImageBrush image);
+
+        private UpdateImage updateImage;
+
+        #endregion
+        
+        public MascotModel(UpdateImage updateImage) {
             mascot = Manager.Instance.GetMascot("Irisu");
         }
 
-        public ImageBrush Tick() {
-            return mascot.Next();
+        public void Tick() {
+
         }
     }
 }

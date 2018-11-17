@@ -12,7 +12,7 @@ namespace DesktopMascots {
     /// <summary>
     /// ファイル名から画像を読み込む静的クラス
     /// </summary>
-    static class ImageLoader {
+    static class ImagePairLoader {
 
         public static ImagePair Load(string name) {
             var onesideBitmap = new Bitmap(name);

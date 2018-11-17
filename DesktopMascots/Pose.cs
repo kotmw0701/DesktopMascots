@@ -10,29 +10,32 @@ namespace DesktopMascots {
         /// <summary>
         /// このフレームの画像
         /// </summary>
-        private readonly ImagePair image;
+        public ImagePair ImagePair { get; }
 
         /// <summary>
         /// X方面への移動量
         /// </summary>
-        private readonly int dx;
+        public int Dx { get; }
 
         /// <summary>
         /// Y方面への移動量
         /// </summary>
-        private readonly int dy;
+        public int Dy { get; }
 
         /// <summary>
         /// 表示時間
         /// </summary>
-        private readonly int duration;
+        public int Duration { get; }
 
         public Pose(ImagePair image) : this(image, 0, 0, 1) { }
 
         public Pose(ImagePair image, int duration) : this(image, 0, 0, duration) { }
 
         public Pose(ImagePair image, int dx, int dy, int duration) {
-
+            ImagePair = image;
+            Dx = dx;
+            Dy = dy;
+            Duration = duration;
         }
     }
 }

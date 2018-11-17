@@ -49,7 +49,8 @@ namespace DesktopMascots {
         private void LoadConfiguration() {
             List<ImagePair> imagePairs = new List<ImagePair>();
             for (int i = 0; i < 6; i++) {
-                ImagePair imagePair = ImageLoader.Load(@"C:\Sync\gif\irisu\3px\rabiribi_iris_page" + (i + 1) + ".png");
+                ImagePair imagePair = ImagePairLoader.Load(@"C:\Sync\gif\irisu\3px\rabiribi_iris_page" + (i + 1) + ".png");
+                Pose pose = new Pose(imagePair, 9);
                 imagePairs.Add(imagePair);
             }
             Mascot mascot = new Mascot("Irisu", imagePairs);

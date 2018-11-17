@@ -63,7 +63,7 @@
     <Compile Include="Animation.cs" />
     <Compile Include="CallBackTest.cs" />
     <Compile Include="IAction.cs" />
-    <Compile Include="ImageLoader.cs" />
+    <Compile Include="ImagePairLoader.cs" />
     <Compile Include="Mascot.cs" />
     <Compile Include="ImagePair.cs" />
     <Compile Include="MascotImage.cs" />
