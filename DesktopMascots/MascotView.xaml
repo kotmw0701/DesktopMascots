@@ -12,13 +12,13 @@
         AllowsTransparency="True" 
         ResizeMode="NoResize" 
         BorderThickness="{Binding Thickness}" 
-        Height="{Binding Height, Mode=TwoWay}"
-        Width="{Binding Width, Mode=TwoWay}" 
+        Height="{Binding Size.Height, Mode=TwoWay}"
+        Width="{Binding Size.Width, Mode=TwoWay}" 
         SourceInitialized="Window_SourceInitialized">
-    <Window.Effect>
-        <DropShadowEffect BlurRadius="8" ShadowDepth="8" Opacity="0.7" Direction="350"/>
-    </Window.Effect>
     <Window.DataContext>
         <local:MascotViewModel/>
     </Window.DataContext>
+    <Window.Effect>
+        <DropShadowEffect BlurRadius="8" ShadowDepth="8" Opacity="0.7" Direction="350"/>
+    </Window.Effect>
 </Window>

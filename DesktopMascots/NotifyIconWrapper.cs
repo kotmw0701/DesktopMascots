@@ -35,7 +35,7 @@ namespace DesktopMascots
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void toolStripMenuItem_Open_Click(Object sender, EventArgs e) {
-            Manager.Instance.GenerateMascot();
+            
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace DesktopMascots
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void notifyIcon1_DoubleClick(object sender, EventArgs e) {
-            Manager.Instance.GenerateMascot();
+            
         }
     }
 }

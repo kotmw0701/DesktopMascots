@@ -62,7 +62,9 @@
     <Compile Include="CallBackTest.cs" />
     <Compile Include="ImagePairLoader.cs" />
     <Compile Include="ImagePair.cs" />
+    <Compile Include="Mascot.cs" />
     <Compile Include="MascotImage.cs" />
+    <Compile Include="MascotViewModel.cs" />
     <Compile Include="Pose.cs" />
     <Page Include="MascotView.xaml">
       <Generator>MSBuild:Compile</Generator>
