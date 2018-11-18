@@ -58,20 +58,12 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Compile Include="ActionBase.cs" />
-    <Compile Include="ActionEnum.cs" />
     <Compile Include="Animation.cs" />
     <Compile Include="CallBackTest.cs" />
-    <Compile Include="IAction.cs" />
     <Compile Include="ImagePairLoader.cs" />
-    <Compile Include="Mascot.cs" />
     <Compile Include="ImagePair.cs" />
     <Compile Include="MascotImage.cs" />
-    <Compile Include="ParserDatas\Mascot.cs" />
     <Compile Include="Pose.cs" />
-    <Compile Include="Setting.xaml.cs">
-      <DependentUpon>Setting.xaml</DependentUpon>
-    </Compile>
     <Page Include="MascotView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -80,20 +72,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Configuration.cs" />
-    <Compile Include="Manager.cs" />
     <Compile Include="MascotView.xaml.cs">
       <DependentUpon>MascotView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Setting.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MascotModel.cs" />
-    <Compile Include="MascotViewModel.cs" />
     <Compile Include="NotifyIconWrapper.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -120,7 +104,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="example.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

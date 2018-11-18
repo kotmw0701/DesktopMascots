@@ -20,7 +20,7 @@ namespace DesktopMascots {
         /// トレイアイコンとかの生成
         /// </summary>
         /// <param name="e"></param>
-        protected override async void OnStartup(StartupEventArgs e) {
+        protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
 
             LoadConfiguration();
@@ -28,7 +28,6 @@ namespace DesktopMascots {
             this.ShutdownMode = ShutdownMode.OnExplicitShutdown;
             this.notifyIcon = new NotifyIconWrapper();
             CreateFirst();
-            await Manager.Instance.Start();
         }
 
         /// <summary>
@@ -47,21 +46,19 @@ namespace DesktopMascots {
         /// ./settings/setting.json
         /// </summary>
         private void LoadConfiguration() {
-            List<ImagePair> imagePairs = new List<ImagePair>();
+            List<Pose> poses = new List<Pose>();
             for (int i = 0; i < 6; i++) {
                 ImagePair imagePair = ImagePairLoader.Load(@"C:\Sync\gif\irisu\3px\rabiribi_iris_page" + (i + 1) + ".png");
                 Pose pose = new Pose(imagePair, 9);
-                imagePairs.Add(imagePair);
+                poses.Add(pose);
             }
-            Mascot mascot = new Mascot("Irisu", imagePairs);
-            Manager.Instance.RegisterMascot(mascot);
+            Animation animation = new Animation(poses.ToArray());
         }
 
         /// <summary>
         /// 一番最初のマスコットを生成する
         /// </summary>
         private void CreateFirst() {
-            Manager.Instance.GenerateMascot();
         }
     }
 }

@@ -14,6 +14,10 @@ namespace DesktopMascots {
             Poses = poses;
         }
 
+        public void next(int time/*もう一つ引数*/) {
+
+        }
+
         public Pose GetPoseAtTime(int time) {
             int mod = time % GetDuration();
             foreach (Pose pose in Poses) {
