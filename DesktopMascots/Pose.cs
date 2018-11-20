@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DesktopMascots {
-    class Pose {
+    public class Pose {
 
         /// <summary>
         /// このフレームの画像
@@ -36,6 +36,10 @@ namespace DesktopMascots {
             Dx = dx;
             Dy = dy;
             Duration = duration;
+        }
+
+        public void Next(Mascot mascot) {
+            mascot.ImageData = ImagePair.GetImage(mascot.IsLookRight);
         }
     }
 }

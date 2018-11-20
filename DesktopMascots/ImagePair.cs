@@ -10,9 +10,9 @@ namespace DesktopMascots {
     /// <summary>
     /// 両方向きの画像を管理
     /// </summary>
-    class ImagePair {
-        public MascotImage LeftImage { get; }
-        public MascotImage RightImage { get; }
+    public class ImagePair {
+        private MascotImage LeftImage { get; }
+        private MascotImage RightImage { get; }
 
         public ImagePair(MascotImage leftImage, MascotImage rightImage) {
             LeftImage = leftImage;

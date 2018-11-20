@@ -11,7 +11,7 @@ namespace DesktopMascots {
     /// <summary>
     /// 画像データ
     /// </summary>
-    class MascotImage {
+    public class MascotImage {
         public ImageBrush Image { get; }
         /// <summary>
         /// Centerは画像データの真下の真ん中
